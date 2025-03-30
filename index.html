@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Anniversary & Birthday - May 30th</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fff5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: #333;
+            background-image:
+                radial-gradient(#ffc0cb 1px, transparent 1px),
+                url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: 20px 20px, cover;
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+        }
+
+        .letter-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border: 1px solid #ff6b81;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            overflow: hidden;
+        }
+
+        .letter-container:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: #ff6b81;
+            animation: float 4s ease-in-out infinite;
+            opacity: 0;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #ff6b81;
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: normal;
+            font-style: italic;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .anniversary-date {
+            text-align: center;
+            font-size: 24px;
+            color: #ff4757;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .content {
+            line-height: 1.8;
+            font-size: 18px;
+        }
+
+        .signature {
+            font-style: italic;
+            text-align: right;
+            margin-top: 30px;
+            font-size: 20px;
+            color: #ff6b81;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 240, 240, 0.7);
+            border-radius: 5px;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+
+        .reveal-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 12px 25px;
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(255, 107, 129, 0.4);
+        }
+
+        .reveal-btn:hover {
+            background-color: #ff4757;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(255, 107, 129, 0.4);
+        }
+
+        .memory-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .memory {
+            width: 140px;
+            height: 140px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .memory:hover {
+            transform: scale(1.1) rotate(5deg);
+            z-index: 5;
+        }
+
+        .countdown {
+            text-align: center;
+            font-size: 18px;
+            margin: 20px 0;
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .envelope-seal {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: #ff4757;
+            border-radius: 50%;
+            z-index: 5;
+        }
+
+        #surprise-content {
+            display: none;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        #surprise-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        #surprise-content .signature {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="letter-container" id="letter">
+        
+        <div class="anniversary-date">Forever & Always • May 30th</div>
+        <div class="memory-container">
+            <img src="Pics/pic1.jpg" class="memory" alt="Our special moment">
+            <img src="Pics/pic2.jpg" class="memory" alt="Romantic sunset">
+            <img src="Pics/pic3.jpg" class="memory" alt="Heart shaped stones">
+            <img src="Pics/pic4.jpg" class="memory" alt="Love you text">
+        </div>
+        <button class="reveal-btn" id="revealBtn">Unveil My Love</button>
+        <div id="surprise-content">
+            <h1 id="letterHeading">My Dearest Love</h1>
+            <p>May 30th fills my heart with a bittersweet joy. It's your birthday and our anniversary, two beautiful milestones we celebrate, even though miles separate us.
+            Happy Birthday, my love. Though I can only see your face on a screen, the spark from our first meeting still burns bright. You light up my world, even from afar, and every virtual moment is a treasure. I hope your birthday is filled with happiness and the warmth of my love, carried across the distance.
+            And then, there's our anniversary. Another year added to our long-distance story, a testament to patience, trust, and a love that knows no boundaries. We've navigated time zones, missed hugs, and whispered 'goodnights' into phones, and yet, our love has only deepened.
+            I think back to our first date, the powerful connection we felt. Even now, with oceans or countries between us, that connection remains. We've built a love that transcends physical presence, a love that thrives on shared dreams and late-night calls.
+            You are my confidante, my best friend, the one who understands me even through delayed conversations and exhaustion. You are the reason I smile, even through the ache of missing you. You are the reason I believe in forever, even when forever feels so far away. The distance is a constant ache, and sometimes, I cry because I miss you so much.
+            Today, as we celebrate your birthday and our anniversary, know that my love for you is unwavering. It bridges any gap, growing stronger with each passing day. You are my forever person, the one I choose, always. I'm sorry for the pain I caused you during those six days of silence. I promise not to repeat that. I may not be the perfect boyfriend, but I've found the perfect girlfriend and best friend in you. Thank you for staying, for understanding, for loving me, even when it's hard, and even when we're apart.
+            Thank you for being you, for creating a love that defies distance, for sharing your life with me. I promise to cherish you, to support you, and to love you unconditionally, until we're finally together again. Always remember that I'm always here for you, no matter what.
+            Happy Birthday and Happy Anniversary, my love. Here's to closing the distance soon, and to celebrating many more beautiful years, in person.
+            With all my love, across the miles,</p>
+            <div class="hidden-message" id="hiddenMessage" style="margin-top: 0;">
+                <img src="Pics/pic4.jpg" style="width: 100%; border-radius: 8px; margin-bottom: 15px;" alt="Our love">
+                <p>Happy Anniversary and Happy Birthday, my love! Here's to many more years of happiness together.</p>
+                <p class="pulse" style="font-size: 24px;">❤️ May 30th ❤️</p>
+            </div>
+            <div class="signature">
+                Forever yours,<br>
+                <span id="signerName">Ian Clark</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript for interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const letter = document.getElementById('letter');
+            const revealBtn = document.getElementById('revealBtn');
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            const surpriseContent = document.getElementById('surprise-content');
+            const letterHeading = document.getElementById('letterHeading')
+
+            // EDIT THESE VALUES TO PERSONALIZE
+            const personalization = {
+                recipientName: "My Dearest Love",
+                senderName: "Ian Clark",
+                image1: "Pics/pic1.jpg",
+                image2: "Pics/pic2.jpg",
+                image3: "Pics/pic3.jpg",
+                image4: "Pics/pic4.jpg",
+                hiddenImage: "Pics/pic5.jpg",
+            };
+
+            // Apply personalization
+            
+            document.getElementById('signerName').textContent = personalization.senderName;
+
+            // Set custom images
+            const memories = document.querySelectorAll('.memory');
+            if (memories.length >= 4) {
+                memories[0].src = personalization.image1;
+                memories[1].src = personalization.image2;
+                memories[2].src = personalization.image3;
+                memories[3].src = personalization.image4;
+            }
+            document.querySelector('#hiddenMessage img').src = personalization.hiddenImage;
+            letterHeading.textContent = personalization.recipientName;
+
+
+            function createHearts() {
+                for (let i = 0; i < 30; i++) {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.top = Math.random() * 100 + '%';
+                    heart.style.animationDelay = Math.random() * 5 + 's';
+                    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    letter.appendChild(heart);
+                }
+            }
+
+            // Reveal hidden message and letter content
+            revealBtn.addEventListener('click', function() {
+                surpriseContent.style.display = 'block';
+                revealBtn.style.display = 'block';
+                hiddenMessage.style.display = 'block';
+                revealBtn.style.display = 'none'; // Hide the button
+                createHearts();
+                try {
+                    const audio = new Audio('Pics/ILYSB.mp3');
+                    audio.volume = 0.1;
+                    audio.play();
+                } catch (e) {
+                    console.log("Audio playback error:", e);
+                }
+            });
+
+            // Add paper-like texture on hover
+            letter.addEventListener('mousemove', function(e) {
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                letter.style.transform = `rotateY(${(x - 0.5) * 10}deg) rotateX(${(0.5 - y) * 10}deg)`;
+            });
+
+            letter.addEventListener('mouseleave', function() {
+                letter.style.transform = 'rotateY(0) rotateX(0)';
+            });
+        });
+    </script>
+</body>
+</html>
